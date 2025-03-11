@@ -1,0 +1,32 @@
+[package]
+name = "tree_game"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bevy = "0.12"
+bevy-inspector-egui = "0.21"
+
+bevy_rapier2d = { version = "0.23", features = ["simd-stable", "debug-render-3d"]}
+dolly = "0.4"
+
+rand = "0.8"
+bracket-noise = "0.8"
+
+serde = "1"
+ron = "0.8"
+
+strum = {version = "0.25.0", features = ["derive"]}
+bevy_vector_shapes = "0.6.0"
+
+[profile.release]
+opt-level = "z"
+strip = true
+panic = "abort"
+
+[profiles.dev]
+apt-level = 1
+[profile.dev.package."*"]
+opt-level = 3
